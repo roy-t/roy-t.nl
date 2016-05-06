@@ -1,0 +1,21 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: The blog of Roy T.
+email: roy-t@hotmail.com
+description: > # this means to ignore newlines until "baseurl:"
+ I'm Roy Triesscheijn and I'm a programmer. I've graduated with honors from the master program 'Game & Media technology' of Utrecht University. The more well know projects I've worked on are Tomb Raider (internship at Nixxes) and R.E.I.S. (internship at Abbey Games). Currently I work for SilverFit where we use Microsoft's Kinect camera, and other sensor devices for applications in the field of geriatrics.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://roy-t.nl" # the base hostname & protocol for your site
+twitter_username: roytries
+github_username:  roy-t
+
+highlighter: rouge
+
+# Build settings
+markdown: kramdown
