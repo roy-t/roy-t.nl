@@ -1,0 +1,4 @@
+RewriteEngine on
+
+
+RewriteRule ^index\.php/(.+)/$ http://roy-t.nl/$1.html [NE,L,R]

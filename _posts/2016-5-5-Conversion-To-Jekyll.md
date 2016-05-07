@@ -4,7 +4,7 @@ title: Conversion to Jekyll
 date: 2016-05-05 12:03
 author: admin
 comments: true
-categories: [Jekyll, Wordpress]
+categories:
 ---
 
 For the last 8 years this blog has been powered by Wordpress. Though it has given me many problems I was generally quite satisfied with how it works. Unfortunately the last few years have been different. Although I've used a standard install, that was automatically updated, the blog got infected with malware on numerous occasions and even when the blog was not infected it worked terribly slow. 

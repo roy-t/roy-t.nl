@@ -10,13 +10,13 @@ Since 2008 I started focusing on games. In 2008 I discovered Microsoft’s XNA f
 
 In 2010 I met a few game designers and artists working on the game Hollandia (<a href="http://www.hollandiagame.com">www.hollandiagame.com</a>). They had just won a Dutch Game Award but their programmer was unable to continue working on the game engine, which caused the project to stall. I rewrote most of their engine and coupled it to an existing physics framework. Around the same time I worked with a 15 man strong team on an extensive web shop project for Q-Free. We developed a process that automatically pulled new releases from source control,  and made them available in their web shop.
 
-In 2011 I interned at<a title="Nixxes" href="http://www.nixxes.com/"> Nixxes Software</a>, a studio developing technology for high profile games like Deus Ex : Human Revolution. During my internship I wrote tools for Crystal Dynamics' upcoming Tomb Raider reboot.
+In 2011 I interned at<a title="Nixxes" href="http://www.nixxes.com/"> Nixxes Software</a>, a studio developing technology for high profile games like Deus Ex : Human Revolution. During my internship I wrote tools for Crystal Dynamics' then upcoming Tomb Raider reboot.
 
-While finishing up my Bsc. in Computing Science I worked at <a href="http://www.sciencelinx.nl">Science LinX</a> (2009-2012) where I grew from a system administrator to serious game developer with a diverse set of responsibilities, from building exhibits to managing projects.
+While finishing up my Bsc. in Computing Science I worked at <a href="http://www.sciencelinx.nl">Science LinX</a> (2009-2012) where I grew from a system administrator to serious game developer with a diverse set of responsibilities, from building and maintaining technical museum exhibits to managing small projects.
 
-I've graduated Cum Laude from my master's degree in Computing Science from Utrecht University, specializing in game and media technology while also doing an internship at <a href="http://www.abbeygames.com">Abbey Games</a>.
+In 2014 I received my master's degree when I graduated Cum Laude from Utrecht University. (Computer Science with a specialization in Game & Media Technology). At the same time I was doing an internship at <a href="http://www.abbeygames.com">Abbey Games</a> where I worked on the content pipeline and tooling for R.E.I.S.
 
-I currently work at <a href="http://silverfit.nl">SilverFit</a>
+I currently work at <a href="http://silverfit.nl">SilverFit</a>. At SilverFit I work with a diverse set of sensors (such as the Kinect 2 camera by Microsoft) for measuring movement, breathing, and even swallowing. This information is used in applied games in the field of geriatrics.
 
 Contact me via <a href="mailto:roy-t@hotmail.com">e-mail</a>, <a href="https://twitter.com/roytries">Twitter</a>, <a href="http://www.linkedin.com/pub/roy-triesscheijn/32/38a/387">LinkedIn</a>, or <a href="http://www.youtube.com/user/roytri">Youtube</a>.
 
