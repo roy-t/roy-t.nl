@@ -7,15 +7,18 @@ comments: true
 categories:
 ---
 
-For the last 8 years this blog has been powered by Wordpress. Though it has given me many problems I was generally quite satisfied with how it works. Unfortunately the last few years have been different. Although I've used a standard install, that was automatically updated, the blog got infected with malware on numerous occasions and even when the blog was not infected it worked terribly slow. 
+For the last 8 years this blog was running on Wordpress. I think Wordpress is a great platform, and in those eight years I was generally satisfied with how it worked.
 
-Because of this I've decided to switch over my entire blog to static-html which reduced to chance of this blog ever being effected again to near 0%. It will also give it a nice speed boost. 
+Unfortunately the last few years have been different. Wordpress seems to have become extremely vulnerable to malware infections. This blog itself got infected at least 4 times in the last two years! This is odd since I use a completely standard installation and almost no plugins. Auto-update is configured and I've tried to harden the installation with a security scanner but this didn't seem to help at all. To make things worse the blog software also didn't really work when it wasn't infected, it was terribly slow.
+
+Because of this I've decided to switch over my entire blog to plain old static html pages. This should make it virtually impossible to get infected and it also gives a nice speed boost!
 
 Of course I will not be typing HTML by hand. I've decided to use [Jekyll](https://jekyllrb.com). Jekyll generates a complete static website from posts written in markdown. 
 
-This change is not intended to begin my entire blog from a clean slate. I've used a converter to convert all the old Wordpress posts to markdown. And it seems to work fairly well. But I still need to do some tinkering before I'm satisfied enough with the conversion before I upload it. I can also not guarantee that all old links will keep working, but I will try to accomodate that :).
+Changing from Wordpress to Jekyll isn't painless. I've used a converter to convert all the old Wordpress posts to markdown but most of them need small tweaks. I've also had some trouble making the old Wordpress links work. But thanks to some .htaccess voodoo that too works alright now :).
+
+You can check out [Github](https://github.com/roy-t/roy-t.nl) to see how I've done the conversion. All the inputs for this website are stored there.
+
+It will take some time to convert all the old posts. There are almost 150 of them. See my twitter feed for the actual status. Currently almost everything from the last 5 years has been converted.
 
 In the meantime, sorry for the inconvenience!
-
-
-- Roy Triesscheijn
