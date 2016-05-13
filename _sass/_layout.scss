@@ -11,7 +11,7 @@
 }
 
 .site-title {
-    font-size: 26px;
+    font-size: 26px;    
     font-weight: 300;
     line-height: 56px;
     letter-spacing: -1px;
@@ -20,8 +20,12 @@
 
     &,
     &:visited {
-        color: $grey-color-dark;
+        color: $title-color;
     }
+}
+
+.footer-title {
+    color: $title-color;
 }
 
 .site-nav {
@@ -33,7 +37,7 @@
     }
 
     .page-link {
-        color: $text-color;
+        color: $grey-color;
         line-height: $base-line-height;
 
         // Gaps between nav items, but not on the last one
@@ -169,6 +173,7 @@
  */
 .page-content {
     padding: $spacing-unit 0;
+    background-color: $content-color;
 }
 
 .page-heading {

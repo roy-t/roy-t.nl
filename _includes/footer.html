@@ -3,7 +3,7 @@
   <div class="wrapper">
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
-        <p>Info</p>
+        <p class="footer-title">Info</p>
         <ul class="contact-list">          
           <li>{{ site.title }}</li>
           <li class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></li>  
@@ -12,7 +12,7 @@
       </div>
 
       <div class="footer-col footer-col-2">
-        <p>Social</p>
+        <p class="footer-title">Social</p>
         <ul class="social-media-list">        
           {% if site.twitter_username %}
           <li>
@@ -33,7 +33,7 @@
       </div>
 
       <div class="footer-col footer-col-3">
-        <p>Bio</p>
+        <p class="footer-title">Bio</p>
         <p>{{ site.description }}</p>
       </div>
     </div>
