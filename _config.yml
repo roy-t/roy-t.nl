@@ -9,7 +9,7 @@
 title: The blog of Roy T.
 email: roy-t@hotmail.com
 description: > # this means to ignore newlines until "baseurl:"
- Past work: Tomb Raider (Nixxes), R.E.I.S. (Abbey Games). Current Work: SilverFit. Education: MSc from Utrecht University (Cum Laude, 2014).
+ Past: Tomb Raider (Nixxes), R.E.I.S. (Abbey Games). Current: SilverFit. MSc from Utrecht University (Cum Laude, 2014).
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://roy-t.nl" # the base hostname & protocol for your site
 twitter_username: roytries
