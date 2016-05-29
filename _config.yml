@@ -5,6 +5,9 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'jekyll serve'. If you change this file, please restart the server process.
 
+# Gems
+gems: [jekyll-paginate]
+
 # Site settings
 title: The blog of Roy T.
 email: roy-t@hotmail.com
@@ -14,6 +17,8 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://roy-t.nl" # the base hostname & protocol for your site
 twitter_username: roytries
 github_username:  roy-t
+
+paginate: 20
 
 highlighter: rouge
 
