@@ -1,7 +1,10 @@
 ---
 layout: page
 title: About
-permalink: /about/
+date: 2014-05-07 10:52
+author: admin
+comments: true
+categories:
 ---
 
 At the age of 14 I started programming in PowerPoint’s VBScript environment, quickly after that I switched to Visual Basic 6 learning basic programming skills. A few years later I applied these skill to write my first ‘database’ application for the Salida youth crisis relief center. The application used VB6 and flat files on an FTP server to mimic a real database. <em>Around the same time I wrote my first game, a two player top-down shooter</em>. A year later I rewrote the database application in C#, now using a real database (MySQL) which allowed users to really work together. This application is still used daily by approximately 20 people at Stichting Cardan.
