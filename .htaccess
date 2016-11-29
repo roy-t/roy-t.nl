@@ -6,7 +6,7 @@ RewriteEngine on
 
 
 RewriteRule ^index\.php/(.+)/$ http://roy-t.nl/$1.html [NE,L,R]
-RewriteRule ^(.+)/$ http://roy-t.nl/$1.html [NE,L,R]
+
 
 
 ErrorDocument 404 /errors/404.html
