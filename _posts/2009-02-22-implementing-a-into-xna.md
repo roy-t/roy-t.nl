@@ -6,7 +6,7 @@ author: admin
 comments: true
 categories: 
 ---
-<h3>Update: my latest and greatest implementation of A* can be found <a href="http://127.0.0.1:4000/2011/09/24/another-faster-version-of-a-2d3d-in-c.html">here</a></h3>
+<h3>Update: my latest and greatest implementation of A* can be found <a href="http://roy-t.nl/2011/09/24/another-faster-version-of-a-2d3d-in-c.html">here</a></h3>
 
 Most of the day I’ve been toying around with the implementation details of A*.  A* is both easy and hard at the same time, small errors in the function that calculates the cost of each node can really break the algorithm (and especially an ‘<’ instead of an ‘>’ and a faulty initialisation can break it, of which I’m, after a good old debugger session, am now painfully aware.
 
