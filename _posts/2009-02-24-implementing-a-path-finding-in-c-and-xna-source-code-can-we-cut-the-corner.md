@@ -7,7 +7,7 @@ comments: true
 categories:
 ---
 
-<h3>Update: my latest and greatest implementation of A* can be found <a href="http://roy-t.nl/2011/09/24/another-faster-version-of-a-2d3d-in-c.html">here</a> and is completely superior to this version</h3>
+## Update: A newer, superior, version available as Nuget package can be found [here](http://roy-t.nl/2017/08/01/A-Star-Pathfinding-nuget-package.html)
 
 I’ve said I’ve been working on an A* path finding algorithm in C# for one of my XNA projects. I’ve cleaned up the garbage and refactored the algorithm into one nice .cs file (2classes)
 

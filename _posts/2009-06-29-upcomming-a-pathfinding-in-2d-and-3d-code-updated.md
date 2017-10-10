@@ -11,3 +11,5 @@ So allot of people have commented on my A* tutorial I posted here a while ago, b
 The new version also incorperates 2D AND 3D worlds so you can use this class for both, I've also optimized a bunch, made everything allot more clear replaced those dodgy ints with nice structs and fixed an unseen bug.
 
 I hope to be able to get it online tomorrow, there's just to much to polish atm to post it right now, but I'll keep you guys updated!
+
+## Update: A newer, superior, version available as Nuget package can be found [here](http://roy-t.nl/2017/08/01/A-Star-Pathfinding-nuget-package.html)

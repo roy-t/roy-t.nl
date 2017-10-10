@@ -23,6 +23,9 @@ I currently work at <a href="http://silverfit.nl">SilverFit</a>. At SilverFit I 
 
 Contact me via <a href="mailto:roy-t@hotmail.com">e-mail</a>, <a href="https://twitter.com/roytries">Twitter</a>, <a href="http://www.linkedin.com/pub/roy-triesscheijn/32/38a/387">LinkedIn</a>, or <a href="http://www.youtube.com/user/roytri">Youtube</a>.
 
+Download my resume <a href="http://roy-t.nl/files/resume.pdf">here</a>
+
+
 <a href="http://stackexchange.com/users/199657"><img class="alignright" title="profile for Roy T. on Stack Exchange, a network of free, community-driven Q&amp;A sites" alt="profile for Roy T. on Stack Exchange, a network of free, community-driven Q&amp;A sites" src="http://stackexchange.com/users/flair/199657.png" width="208" height="58" />
 </a>
 
