@@ -19,11 +19,13 @@ While finishing up my Bsc. in Computing Science I worked at <a href="http://www.
 
 In 2014 I received my master's degree when I graduated Cum Laude from Utrecht University. (Computer Science with a specialization in Game & Media Technology). At the same time I was doing an internship at <a href="http://www.abbeygames.com">Abbey Games</a> where I worked on the content pipeline and tooling for R.E.I.S.
 
-I currently work at <a href="http://silverfit.nl">SilverFit</a>. At SilverFit I work with a diverse set of sensors (such as the Kinect 2 camera by Microsoft) for measuring movement, breathing, and even swallowing. This information is used in applied games in the field of geriatrics.
+From 2015 to 2018 I worked at <a href="http://silverfit.nl">SilverFit</a>. At SilverFit I worked with a diverse set of sensors (such as the Kinect 2 camera by Microsoft) for measuring movement, breathing, and even swallowing. This information is used in applied games in the field of geriatrics.
 
-Contact me via <a href="mailto:roy-t@hotmail.com">e-mail</a>, <a href="https://twitter.com/roytries">Twitter</a>, <a href="http://www.linkedin.com/pub/roy-triesscheijn/32/38a/387">LinkedIn</a>, or <a href="http://www.youtube.com/user/roytri">Youtube</a>.
+In the beginning of 2018 I made the switch to <a href="https://bol.com">bol.com</a>, which is basically the Dutch Amazon. Here I'm learning more about working in a large organisation. (It is about time I learn some more about web development, though for now I'll be working micro-services and REST APIs.)
 
-Download my resume <a href="http://roy-t.nl/files/resume.pdf">here</a>
+You can always contact me via <a href="mailto:roy-t@hotmail.com">e-mail</a>, <a href="https://twitter.com/roytries">Twitter</a>, <a href="http://www.linkedin.com/pub/roy-triesscheijn/32/38a/387">LinkedIn</a>, or <a href="http://www.youtube.com/user/roytri">Youtube</a>.
+
+Download my resume <a href="https://roy-t.nl/files/resume.pdf">here</a>
 
 
 <a href="http://stackexchange.com/users/199657"><img class="alignright" title="profile for Roy T. on Stack Exchange, a network of free, community-driven Q&amp;A sites" alt="profile for Roy T. on Stack Exchange, a network of free, community-driven Q&amp;A sites" src="http://stackexchange.com/users/flair/199657.png" width="208" height="58" />

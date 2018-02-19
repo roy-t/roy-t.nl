@@ -1,12 +1,13 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+RewriteRule ^index\.php/(.+)/$ https://roy-t.nl/$1.html [NE,L,R]
+</IfModule>
+
 <ifmodule mod_deflate.c>
  AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x- javascript application/javascript
 </ifmodule>
-
-RewriteEngine on
-
-
-RewriteRule ^index\.php/(.+)/$ http://roy-t.nl/$1.html [NE,L,R]
-
-
 
 ErrorDocument 404 /errors/404.html
