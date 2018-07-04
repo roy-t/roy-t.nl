@@ -1,9 +1,10 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteCond %{HTTP:X-Forwarded-Proto} !https
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-
 RewriteRule ^index\.php/(.+)/$ https://roy-t.nl/$1.html [NE,L,R]
+
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 
 <ifmodule mod_deflate.c>
