@@ -53,3 +53,13 @@ $on-laptop:        800px;
         "layout",
         "syntax-highlighting"
 ;
+
+.comment-media-list {
+    list-style: none;
+    margin-left: 5px;
+    display: inline-block;
+    li {
+        margin-right: 10px;
+        display: inline-block;
+    }
+}

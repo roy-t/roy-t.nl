@@ -14,10 +14,6 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-# Gems
-#plugins: [jekyll-paginate-v2]
-gems: [jekyll-paginate-v2]
-
 title: The blog of Roy T.
 email: roy-t@hotmail.com
 description: >- # this means to ignore newlines until "baseurl:"
@@ -37,6 +33,7 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-paginate-v2
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
