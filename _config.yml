@@ -19,7 +19,7 @@ email: roy-t@hotmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Back-end developer at Bol.com who likes to blog about game technology
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://roy-t.nl"
+url: "https://roy-t.nl"
 twitter_username: roytries
 github_username:  roy-t
 
