@@ -8,7 +8,7 @@ categories:
 ---
 <!-- Import required for XPlot.Plotly to work correctly -->
 <script src="{{site.url}}/files/require.min.js"></script>
-After watching [this video](https://www.youtube.com/watch?v=lctXaT9pxA0) I've become inspired to procedurally generate my own asteroids. I became even more intrigued when the video showed me how to combine functions to give such interesting results. However explaining how it works to friends and colleageus proved to be difficult. That's why I've decided to compile the technique in a Juypter Notebook. You can find the original notebook at [github](https://github.com/roy-t/MiniRTS/tree/master/Notebooks) as well as compute shaders in which I have implemented these techhniques.
+After watching [this video](https://www.youtube.com/watch?v=lctXaT9pxA0) I've become inspired to procedurally generate my own asteroids. I became even more intrigued when the video showed me how to combine functions to give such interesting results. However explaining how it works to friends and colleagues proved to be difficult. That's why I've decided to compile the technique in a Juypter Notebook. You can find the original notebook at [github](https://github.com/roy-t/MiniRTS/tree/master/Notebooks) as well as compute shaders in which I have implemented these techniques.
 
 
 ## First things first
