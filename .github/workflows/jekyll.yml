@@ -19,7 +19,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: site
-        path: /srv/
+        path: ${{ github.workspace }}/_site
 #     - name: Sync files
 #       uses: SamKirkland/FTP-Deploy-Action@4.2.0
 #       with:
