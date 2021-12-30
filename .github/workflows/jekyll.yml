@@ -20,11 +20,16 @@ jobs:
       with:
         name: site
         path: ${{ github.workspace }}/_site
-#     - name: Sync files
-#       uses: SamKirkland/FTP-Deploy-Action@4.2.0
-#       with:
-#         server: ftp.roy-t.nl
-#         username: roytnl
-#         password: ${{ secrets.ftppassword }}
-#         local-dir: /srv/jekyll/_site/
-#         server-dir: domains/roy-t.nl/public_html/
+  upload:
+    runs-on: ubuntu-latest
+    steps:      
+      - uses: actions/download-artifact@v2
+        with:
+          name: site      
+      - name: Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.2.0
+        with:
+          server: ftp.roy-t.nl
+          username: roytnl
+          password: ${{ secrets.ftppassword }}
+          server-dir: domains/roy-t.nl/public_html/
