@@ -16,11 +16,15 @@ jobs:
         docker run \
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
         jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
-    - name: Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.2.0
+    - uses: actions/upload-artifact@v2
       with:
-        server: ftp.roy-t.nl
-        username: roytnl
-        password: ${{ secrets.ftppassword }}
-        local-dir: /srv/jekyll/_site/
-        server-dir: domains/roy-t.nl/public_html/
+        name: site
+        path: /srv/jekull/_site/
+#     - name: Sync files
+#       uses: SamKirkland/FTP-Deploy-Action@4.2.0
+#       with:
+#         server: ftp.roy-t.nl
+#         username: roytnl
+#         password: ${{ secrets.ftppassword }}
+#         local-dir: /srv/jekyll/_site/
+#         server-dir: domains/roy-t.nl/public_html/
