@@ -6,7 +6,7 @@ author: admin
 comments: true
 categories:
 ---
-On this blog I have posted several articles on path finding, navigation grids and A*</a>. For my master thesis I started looking at Navigation Mesh techniques. I have developed a technique for objectively measuring the performance of <a title="Navigation Mesh" href="http://en.wikipedia.org/wiki/Navigation_mesh">navigation mesh techniques</a>. Using this new technique I have analysed the performance of several navigation mesh techniques.
+On this blog I have posted several articles on path finding, navigation grids and A*. For my master thesis I started looking at Navigation Mesh techniques. I have developed a technique for objectively measuring the performance of <a title="Navigation Mesh" href="http://en.wikipedia.org/wiki/Navigation_mesh">navigation mesh techniques</a>. Using this new technique I have analysed the performance of several navigation mesh techniques.
 
 The results of my master thesis can be downloaded here.
 <ul>
