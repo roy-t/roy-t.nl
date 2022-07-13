@@ -1,7 +1,7 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteRule ^index\.php/(.+)/$ https://roy-t.nl/$1.html [NE,L,R]
-
+RewriteCond %{REQUEST_URI} !^/mipmap_filters/$
 RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
