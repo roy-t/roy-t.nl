@@ -4,31 +4,32 @@
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <p class="footer-title">Info</p>
-        <ul class="contact-list">          
+        <ul class="contact-list">
           <li>{{ site.title }}</li>
           <li class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></li>  
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>          
+          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
         </ul>
       </div>
 
       <div class="footer-col footer-col-2">
         <p class="footer-title">Social</p>
-        <ul class="social-media-list">        
+        <ul class="social-media-list">
+          {% if site.github_username %}
+          <li>
+            {% include icon-github.html username=site.github_username %}
+          </li>
+          {% endif %}
+          <li>
+            <a rel="me" href="https://mastodon.social/@roytries"><span class="icon icon--twitter">{% include icon-mastodon.svg %}</span><span class="username"> Mastodon</span></a>
+          </li>          
           {% if site.twitter_username %}
           <li>
             {% include icon-twitter.html username=site.twitter_username %}
           </li>
           {% endif %}
-
           <li>
             {% include icon-youtube.html %}
           </li>
-
-          {% if site.github_username %}
-          <li>
-            {% include icon-github.html username=site.github_username %}
-          </li>
-          {% endif %}          
         </ul>
       </div>
 
