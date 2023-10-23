@@ -1,0 +1,55 @@
+html,
+body {
+    margin: 0;
+    background-color: black;
+}
+
+.overlay {
+    position: relative;
+    padding-left: 10px;
+    padding-top: 10px;
+    color: white;
+}
+
+.fullwidth {
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: block;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    z-index: -1000;
+}
+
+.titles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title { 
+    color: white;
+}
+
+.title-a {
+    font-size: 72px;
+}
+
+.title-b {
+    font-size: 32px;
+}
+
+.title-c {
+    font-size: 32px;
+}
+
+.logo-bol {
+    display: inline-block;
+}
