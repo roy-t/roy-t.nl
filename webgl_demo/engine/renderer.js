@@ -1,8 +1,8 @@
-import { ShaderProgram } from "./engine/shaderProgram.js";
-import { DoubleBufferedFrameBuffer } from "./engine/frameBuffer.js";
-import { VertexBuffers } from "./engine/vertexBuffers.js";
+import { ShaderProgram } from "./shaderProgram.js";
+import { DoubleBufferedFrameBuffer } from "./frameBuffer.js";
+import { VertexBuffers } from "./vertexBuffers.js";
 
-function drawScene(
+function render(
     /** @type {WebGL2RenderingContext} */
     gl,
     /** @type {number} */
@@ -24,12 +24,13 @@ function drawScene(
     /** @type {number} */
     delta,
     /** @type {number} */
-    accumulator) {
+    accumulator,
+    /** @type {number} */
+    quality) {
 
     // Update velocity simulation
     simulate(gl, velocityBuffer, velocityProgram, velocityBuffer.readTarget.tex, positionBuffer.readTarget.tex,
         buffers, delta, accumulator);
-
     // Update position simulation
     simulate(gl, positionBuffer, positionProgram, velocityBuffer.readTarget.tex, positionBuffer.readTarget.tex,
         buffers, delta, accumulator);
@@ -49,7 +50,18 @@ function drawScene(
     gl.uniform1f(renderProgram.getUniform("uVertrexStride"), positionBuffer.readTarget.width);
     gl.uniform1f(renderProgram.getUniform("uFragmentStride"), positionBuffer.readTarget.width);
 
-    drawPoints(gl, renderProgram, buffers);
+    // Total coverage always stays 4M pixels, but with a lot less work!
+
+    // 2x2, 4x4, 8x8, ...
+    const div = Math.floor(Math.pow(2, quality));
+    let pointSize = div;
+
+    // 1024*1024, 512*512, 256*256, ...    
+    let pointCount = Math.floor((buffers.pointCount * 2)  / div);
+    
+    gl.uniform1f(renderProgram.getUniform("uPointSize"), pointSize);
+
+    drawPoints(gl, renderProgram, buffers, pointCount);
 }
 
 function simulate(
@@ -114,13 +126,16 @@ function drawPoints(
     /** @type {ShaderProgram} */
     program,
     /** @type {VertexBuffers} */
-    buffers) {
+    buffers,
+    /** @type {number} */
+    pointCount
+    ) {
 
     program.setVertexAttribute(gl, buffers.points, "Id", 1, gl.FLOAT);
 
     {
-        gl.drawArrays(gl.POINTS, 0, buffers.pointCount);
+        gl.drawArrays(gl.POINTS, 0, Math.min(buffers.pointCount, pointCount));
     }
 }
 
-export { drawScene };
+export { render };

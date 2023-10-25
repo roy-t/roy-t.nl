@@ -1,5 +1,5 @@
 import { VertexBuffers } from "./vertexBuffers.js";
-import { drawScene } from "../draw-scene.js";
+import { render } from "./renderer.js";
 import { DoubleBufferedFrameBuffer, FrameBuffer } from "./frameBuffer.js";
 import { ShaderProgram } from "./shaderProgram.js";
 
@@ -11,8 +11,6 @@ async function main() {
     let gl = canvas.getContext("webgl2");
     assertNotNull(gl, "Unable to initialize WebGl2 Context. Your browser or machine may not support it.");
 
-    // TODO: remove debug tools
-    //gl = WebGLDebugUtils.makeDebugContext(gl);
     const ext = gl.getExtension("EXT_COLOR_BUFFER_FLOAT");
     assertNotNull(ext, "Unable to enable the EXT_COLOR_BUFFER_FLOAT extension. Your browser or machine may not support it.")
 
@@ -21,7 +19,6 @@ async function main() {
     const resizeObserver = new ResizeObserver(() => {
         canvas.width = Math.round(canvas.clientWidth * devicePixelRatio);
         canvas.height = Math.round(canvas.clientHeight * devicePixelRatio);
-        document.getElementById("hud").innerHTML = `Resolution: ${canvas.width}x${canvas.height}`;
     });
     resizeObserver.observe(canvas);
 
@@ -43,11 +40,47 @@ async function main() {
         'engine/shaders/pointVertexShader.glsl',
         'engine/shaders/pointFragmentShader.glsl',
         [],
-        ["uVertrexStride", "uFragmentStride", "uVertexPositionSampler", "uFragmentPositionSampler"],
+        ["uVertrexStride", "uFragmentStride", "uVertexPositionSampler", "uFragmentPositionSampler", "uPointSize"],
         ["engine/shaders/common.glsl"]);
 
-    const width = 1024;
-    const height = 1024;
+    let quality = 1;
+    let [positionBuffer, velocityBuffer] = createBuffers(gl, quality);
+    const buffers = new VertexBuffers(gl, 1024 * 1024);
+
+    let then = 0.0;
+    let totalSeconds = 0.0;
+    function frame(/** @type {DOMHighResTimeStamp} */ now) {
+        const deltaSeconds = (now - then) * 0.001;
+        const fps = 1.0 / deltaSeconds;
+        document.getElementById("hud").innerHTML = `Quality: ${quality}, Resolution: ${canvas.width}x${canvas.height}, FPS: ${Math.round(fps)}`;
+        let nextQuality = document.getElementById("quality").value;
+        if (quality != nextQuality) {
+            [positionBuffer, velocityBuffer] = createBuffers(gl, quality);
+            quality = nextQuality;
+            totalSeconds = 0.0;
+        }
+        totalSeconds += deltaSeconds;
+        then = now;
+
+        render(gl, canvas.width, canvas.height, velocityProgram, positionProgram, renderProgram, buffers, positionBuffer, velocityBuffer, deltaSeconds, totalSeconds, quality);
+        positionBuffer.swap();
+        velocityBuffer.swap();
+
+        requestAnimationFrame(frame);
+    }
+
+    requestAnimationFrame(frame);
+}
+
+/** @type {DoubleBufferedFrameBuffer[2]} */
+function createBuffers(
+    /** @type {WebGL2RenderingContext} */gl,
+    /** @type {number} */ quality) {
+
+    const div = Math.pow(2, quality);
+
+    const width = Math.floor(1024.0 / div);
+    const height = Math.floor(1024.0 / div);
 
     const positionBuffer = new DoubleBufferedFrameBuffer(
         FrameBuffer.createRGBA32F(gl, width, height),
@@ -58,24 +91,7 @@ async function main() {
         FrameBuffer.createRGBA32F(gl, width, height)
     );
 
-    const buffers = new VertexBuffers(gl, width * height);
-
-    let then = 0;
-    let accumulator = 0;
-    function render(now) {
-        now *= 0.001; // convert to seconds
-        const delta = Math.min(now - then, 1.0 / 30.0); // prevent stutters from greatly affecting the simulation
-        accumulator += delta;
-        then = now;
-
-        drawScene(gl, canvas.width, canvas.height, velocityProgram, positionProgram, renderProgram, buffers, positionBuffer, velocityBuffer, delta, accumulator);
-        positionBuffer.swap();
-        velocityBuffer.swap();
-
-        requestAnimationFrame(render);
-    }
-
-    requestAnimationFrame(render);
+    return [positionBuffer, velocityBuffer];
 }
 
 function assertNotNull(/** @type {any} */ object, /** @type {string} */ message) {

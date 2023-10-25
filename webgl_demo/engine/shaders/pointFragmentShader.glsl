@@ -4,9 +4,6 @@ out vec4 fragColor;
 uniform sampler2D uFragmentPositionSampler;
 uniform float uFragmentStride;
 
-const float GAMMA = 2.2;
-const float INVERSE_GAMMA = 0.45454545455;
-
 const vec3 colorA =  vec3(131.0, 1.0, 143.0);
 const vec3 colorB =  vec3(201.0, 8.0, 200.0);
 const vec3 colorC =  vec3(255.0, 49.0, 48.0);

@@ -16,3 +16,8 @@ Run `dotnet-serve` it will pick up the configuration from the `.netconfig` file 
 - https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Adding_2D_content_to_a_WebGL_context
 - https://glmatrix.net (version 3.4.0)
 - https://webglfundamentals.org/webgl/lessons/webgl-render-to-texture.html
+
+# TODO:
+
+- If simulation runs very slowly, particles die before they can make the shape
+- Needs to run around 4-8x faster for a mobile phone to make sense

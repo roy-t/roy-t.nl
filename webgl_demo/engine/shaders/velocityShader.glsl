@@ -6,7 +6,7 @@ out vec4 fragColor;
 uniform sampler2D uPositionSampler;
 uniform sampler2D uVelocitySampler;
 
-const float field_speed = 0.0007;
+const float field_speed = 0.12;
 const float noise_strength = 0.25;
 const float progression_rate = 0.25;
 const float length_scale = 0.5;

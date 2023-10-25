@@ -3,9 +3,10 @@ out float vFragmentId;
 
 uniform sampler2D uVertexPositionSampler;
 uniform float uVertrexStride;
+uniform float uPointSize;
 
 void main(void) {
-    gl_PointSize = 2.0;
+    gl_PointSize = uPointSize;
 
     vec2 uv = indexToTextureCoordinate(vVertexId, uVertrexStride);
     vec4 position = texture(uVertexPositionSampler, uv);

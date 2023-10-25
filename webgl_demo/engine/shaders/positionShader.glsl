@@ -30,7 +30,7 @@ void main(void) {
     position.a = position.a - (uDelta / MAX_LIFETIME_SECONDS);
 
     if(velocity.z == 0.0) {
-        position.xy += velocity.xy;
+        position.xy += velocity.xy * uDelta;
     } else {
         position.z = 1.0;
     }
