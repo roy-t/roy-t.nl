@@ -10,16 +10,23 @@
 </head>
 
 <body>
-  <div id="hud" class="overlay">Hello World!</div>
-  <input id="quality" type="range" min="1" max="4" value="1" class="slider">
-  <div class="fullwidth">
-    <div class="titles">
-      <div class="title title-a">Roy Triesscheijn</div>
-      <div class="title title-b">Expert Engineer, Tech Lead at <a href='https://techlab.bol.com/en/'><img class="logo-bol" height="22px" src="./assets/bol.png" /></a></div>
-      <div class="title title-c">Game Technology Enthusiast</div>
-    </div>
-    <canvas class="background" id="glcanvas"></canvas>
-  </div>
-</body>
+  <div class="parent">
+    <span class="quality">Quality:</span>
+    <a class="quality" href="#" id="quality_ultra">ultra</a>,
+    <a class="quality" href="#" id="quality_high">high</a>,
+    <a class="quality" href="#" id="quality_medium">medium</a>,
+    <a class="quality" href="#" id="quality_low">low</a>
 
+    <div class="child">
+      <canvas class="target" id="glcanvas"></canvas>
+      <div class="overlay">
+        <div class="titles">
+          <div class="title title-a">Roy Triesscheijn</div>
+          <div class="title title-b">Expert Engineer, Tech Lead at <a href='https://techlab.bol.com/en/'><img
+                class="logo-bol" src="./assets/bol.png" /></a></div>
+          <div class="title title-c">Game Technology Enthusiast</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </html>

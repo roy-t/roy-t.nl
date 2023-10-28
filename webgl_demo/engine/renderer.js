@@ -53,11 +53,14 @@ function render(
     // Total coverage always stays 4M pixels, but with a lot less work!
 
     // 2x2, 4x4, 8x8, ...
+    const mul = Math.ceil(width / 1440.0);
     const div = Math.floor(Math.pow(2, quality));
-    let pointSize = div;
+    let pointSize = mul * div;
 
-    // 1024*1024, 512*512, 256*256, ...    
+
+    // 1024*1024, 512*512, 256*256, ...
     let pointCount = Math.floor((buffers.pointCount * 2)  / div);
+
     
     gl.uniform1f(renderProgram.getUniform("uPointSize"), pointSize);
 

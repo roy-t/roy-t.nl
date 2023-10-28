@@ -27,6 +27,5 @@ void main(void) {
     } else  {
         c = colorE;
     }
-
     fragColor = vec4(c / 255.0, 1.0);
 }

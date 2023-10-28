@@ -5,6 +5,19 @@ import { ShaderProgram } from "./shaderProgram.js";
 
 await main();
 
+function throttle(f, delay) {
+    let timer = 0;
+    return function (...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => f.apply(this, args), delay);
+    }
+}
+
+function resize(/** @type {HTMLCanvasElement} */ canvas) {
+    canvas.width = Math.round(canvas.clientWidth * devicePixelRatio);
+    canvas.height = Math.round(canvas.clientHeight * devicePixelRatio);
+}
+
 async function main() {
     /** @type {HTMLCanvasElement} */
     const canvas = document.querySelector("#glcanvas");
@@ -16,10 +29,11 @@ async function main() {
 
     // If the canvas resizes, the rendered bitmap will just be stretched. Instead we want
     // to resize the webgl viewport and frame buffers to create a pixel perfect image.
-    const resizeObserver = new ResizeObserver(() => {
-        canvas.width = Math.round(canvas.clientWidth * devicePixelRatio);
-        canvas.height = Math.round(canvas.clientHeight * devicePixelRatio);
-    });
+    const resizeObserver = new ResizeObserver(throttle((_) => {
+        resize(canvas);
+    }, 600));
+    resize(canvas);
+
     resizeObserver.observe(canvas);
 
     const velocityProgram = await ShaderProgram.create(gl,
@@ -44,27 +58,33 @@ async function main() {
         ["engine/shaders/common.glsl"]);
 
     let quality = 1;
+    document.getElementById("quality_ultra").onclick = function () { quality = 1.0; }
+    document.getElementById("quality_high").onclick = function () { quality = 2.0; }
+    document.getElementById("quality_medium").onclick = function () { quality = 3.0; }
+    document.getElementById("quality_low").onclick = function () { quality = 4.0; }
+
     let [positionBuffer, velocityBuffer] = createBuffers(gl, quality);
     const buffers = new VertexBuffers(gl, 1024 * 1024);
 
     let then = 0.0;
     let totalSeconds = 0.0;
+    let currentQuality = quality;
     function frame(/** @type {DOMHighResTimeStamp} */ now) {
-        const deltaSeconds = (now - then) * 0.001;
-        const fps = 1.0 / deltaSeconds;
-        document.getElementById("hud").innerHTML = `Quality: ${quality}, Resolution: ${canvas.width}x${canvas.height}, FPS: ${Math.round(fps)}`;
-        let nextQuality = document.getElementById("quality").value;
-        if (quality != nextQuality) {
-            [positionBuffer, velocityBuffer] = createBuffers(gl, quality);
-            quality = nextQuality;
-            totalSeconds = 0.0;
-        }
-        totalSeconds += deltaSeconds;
-        then = now;
+        console.log(document.visibilityState);
+        if (document.visibilityState === "visible") {
+            const deltaSeconds = Math.min((now - then) * 0.001, 1.0 / 30.0);
+            if (currentQuality != quality) {
+                [positionBuffer, velocityBuffer] = createBuffers(gl, quality);
+                currentQuality = quality;
+                totalSeconds = 0.0;
+            }
+            totalSeconds += deltaSeconds;
+            then = now;
 
-        render(gl, canvas.width, canvas.height, velocityProgram, positionProgram, renderProgram, buffers, positionBuffer, velocityBuffer, deltaSeconds, totalSeconds, quality);
-        positionBuffer.swap();
-        velocityBuffer.swap();
+            render(gl, canvas.width, canvas.height, velocityProgram, positionProgram, renderProgram, buffers, positionBuffer, velocityBuffer, deltaSeconds, totalSeconds, currentQuality);
+            positionBuffer.swap();
+            velocityBuffer.swap();
+        }
 
         requestAnimationFrame(frame);
     }
