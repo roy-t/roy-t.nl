@@ -70,7 +70,6 @@ async function main() {
     let totalSeconds = 0.0;
     let currentQuality = quality;
     function frame(/** @type {DOMHighResTimeStamp} */ now) {
-        console.log(document.visibilityState);
         if (document.visibilityState === "visible") {
             const deltaSeconds = Math.min((now - then) * 0.001, 1.0 / 30.0);
             if (currentQuality != quality) {

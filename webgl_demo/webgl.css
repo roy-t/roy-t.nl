@@ -1,5 +1,10 @@
+@font-face {
+    font-family: "Stellar";
+    src: url('/assets/PPStellar-Light.otf'), format('truetype');
+}
+
 html, body {
-    margin: 0px;
+    margin: 0;
     height: 100vh;
     background-color: black;
 }
@@ -18,6 +23,7 @@ html, body {
 .quality {
     color: #3C3E42;
     z-index: 9999;
+    font-family: monospace;
 }
 
 .target {
@@ -40,21 +46,37 @@ html, body {
 
 .title { 
     color: white;
+    font-family: "Stellar";
 }
 
 .title-a {
-    font-size: 7vmin;
+    font-size: 9vmin;
 }
 
 .title-b {
-    font-size: 3vmin;
-}
-
-.title-c {
-    font-size: 3vmin;
+    font-size: 2vmin;
 }
 
 .logo-bol {
-    height: 2vmin;
+    height: 1.5vmin;
     display: inline-block;
+    margin-right: 1vmin;
+}
+
+.buttons {
+    margin: 10vmin auto;
+    width: 30vmin;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button {
+    background-color: black;
+    text-decoration: underline;
+    color: white;
+    cursor: pointer;
+    border: none;
+    margin: 2.5vmin;
+    font-family: "Stellar";
+    font-size: 2vmin;
 }
