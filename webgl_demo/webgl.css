@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Stellar";
-    src: url('/assets/PPStellar-Light.otf'), format('truetype');
+    src: url('./assets/PPStellar-Light.otf'), format('truetype');
 }
 
 html, body {
