@@ -10,7 +10,7 @@ On this blog I have posted several articles on path finding, navigation grids an
 
 The results of my master thesis can be downloaded here.
 <ul>
-	<li>Master thesis (<a title="Master Thesis" href="http://dspace.library.uu.nl/handle/1874/302263">pdf available freely from the Utrecht University Open Access Library</a>)</li>
+	<li>Master thesis (<a title="Master Thesis" href="https://studenttheses.uu.nl/handle/20.500.12932/19105">pdf available freely from the Utrecht University Open Access Library</a>)</li>
 </ul>
 
 [Wouter van Toll](http://www.uu.nl/staff/WGvanToll) incorporated my work in this own studies, resulting in the following related publication and dissertation.
