@@ -18,14 +18,30 @@ function resize(/** @type {HTMLCanvasElement} */ canvas) {
     canvas.height = Math.round(canvas.clientHeight * devicePixelRatio);
 }
 
+function disableSimulation() {
+    document.querySelector("#quality").innerHTML = 'Simulation unavailable, try a browser that supports WebGL!';
+    document.querySelector("#quality_ultra").remove();
+    document.querySelector("#quality_high").remove();
+    document.querySelector("#quality_medium").remove();
+    document.querySelector("#quality_low").remove();
+}
+
 async function main() {
     /** @type {HTMLCanvasElement} */
     const canvas = document.querySelector("#glcanvas");
     let gl = canvas.getContext("webgl2");
-    assertNotNull(gl, "Unable to initialize WebGl2 Context. Your browser or machine may not support it.");
+    if (!gl) {
+        console.error("Unable to initialize WebGl2 Context. Your browser or machine may not support it.");
+        disableSimulation();
+        return;
+    }
 
     const ext = gl.getExtension("EXT_COLOR_BUFFER_FLOAT");
-    assertNotNull(ext, "Unable to enable the EXT_COLOR_BUFFER_FLOAT extension. Your browser or machine may not support it.")
+    if (!ext) {
+        console.error("Unable to enable the EXT_COLOR_BUFFER_FLOAT extension. Your browser or machine may not support it.");
+        disableSimulation();
+        return;
+    }
 
     // If the canvas resizes, the rendered bitmap will just be stretched. Instead we want
     // to resize the webgl viewport and frame buffers to create a pixel perfect image.
@@ -37,25 +53,32 @@ async function main() {
     resizeObserver.observe(canvas);
 
     const velocityProgram = await ShaderProgram.create(gl,
-        'engine/shaders/vertexShader.glsl',
-        'engine/shaders/velocityShader.glsl',
+        'splash/engine/shaders/vertexShader.glsl',
+        'splash/engine/shaders/velocityShader.glsl',
         ["aVertexPosition"],
         ["uDelta", "uAccumulator", "uPositionSampler", "uVelocitySampler"],
-        ["engine/shaders/common.glsl"]);
+        ["splash/engine/shaders/common.glsl"]);
 
     const positionProgram = await ShaderProgram.create(gl,
-        'engine/shaders/vertexShader.glsl',
-        'engine/shaders/positionShader.glsl',
+        'splash/engine/shaders/vertexShader.glsl',
+        'splash/engine/shaders/positionShader.glsl',
         ["aVertexPosition"],
         ["uDelta", "uAccumulator", "uPositionSampler", "uVelocitySampler"],
-        ["engine/shaders/common.glsl"]);
+        ["splash/engine/shaders/common.glsl"]);
 
     const renderProgram = await ShaderProgram.create(gl,
-        'engine/shaders/pointVertexShader.glsl',
-        'engine/shaders/pointFragmentShader.glsl',
+        'splash/engine/shaders/pointVertexShader.glsl',
+        'splash/engine/shaders/pointFragmentShader.glsl',
         [],
         ["uVertrexStride", "uFragmentStride", "uVertexPositionSampler", "uFragmentPositionSampler", "uPointSize"],
-        ["engine/shaders/common.glsl"]);
+        ["splash/engine/shaders/common.glsl"]);
+
+
+    if( velocityProgram === null || positionProgram === null || renderProgram === null) {
+        console.error("Unable to initialize shaders. Check the logs for more errors.");
+        disableSimulation();
+        return;
+    }
 
     let quality = 1;
     document.getElementById("quality_ultra").onclick = function () { quality = 1.0; }
@@ -111,10 +134,4 @@ function createBuffers(
     );
 
     return [positionBuffer, velocityBuffer];
-}
-
-function assertNotNull(/** @type {any} */ object, /** @type {string} */ message) {
-    if (object === null) {
-        console.error(message);
-    }
 }

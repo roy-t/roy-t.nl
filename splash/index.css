@@ -24,6 +24,7 @@ html, body {
     color: #3C3E42;
     z-index: 9999;
     font-family: monospace;
+    font-size: 2vmin;
 }
 
 .target {
@@ -50,17 +51,18 @@ html, body {
 }
 
 .title-a {
-    font-size: 9vmin;
+    font-size: 9.1vmin;
 }
 
 .title-b {
-    font-size: 2vmin;
+    font-size: 3.0vmin;
 }
 
 .logo-bol {
-    height: 1.5vmin;
+    height: 2.5vmin;
     display: inline-block;
     margin-right: 1vmin;
+    margin-bottom: -0.2vmin;
 }
 
 .buttons {
@@ -76,7 +78,7 @@ html, body {
     color: white;
     cursor: pointer;
     border: none;
-    margin: 2.5vmin;
+    margin: 1.9vmin;
     font-family: "Stellar";
-    font-size: 2vmin;
+    font-size: 3vmin;
 }

@@ -91,7 +91,7 @@ class FrameBuffer {
         gl.framebufferTexture2D(gl.FRAMEBUFFER, attachmentPoint, gl.TEXTURE_2D, texture, level);
 
         if (gl.checkFramebufferStatus(gl.FRAMEBUFFER) != gl.FRAMEBUFFER_COMPLETE) {
-            alert('Framebuffer not complete!');
+            console.error('Framebuffer not complete!');
         }
 
         return new FrameBuffer(width, height, fb, texture);

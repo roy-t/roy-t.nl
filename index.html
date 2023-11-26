@@ -1,50 +1,40 @@
----
-layout: default
-pagination: 
-  enabled: true
-  sort_reverse: true
----
+<!doctype html>
+<html lang="en">
 
-<div class="home">
-  <ul class="post-list">
-    {% for post in paginator.posts %}
-      <li>        
-        <h2>          
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>          
-          <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
-        </h2>
-        
-      </li>
-    {% endfor %}
-  </ul>  
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width">
+  <title>Roy Triesscheijn &ndash; Homepage</title>
+  <link rel="stylesheet" href="./splash/index.css" type="text/css" />
+  <script src="./splash/engine/bootstrapper.js" type="module" defer></script>
+</head>
 
-</div>
+<body>
+  <div class="parent">
+    <div class="child">
+      <canvas class="target" id="glcanvas"></canvas>
+      <div class="overlay">
+        <div class="titles">
+          <div class="title title-a">Roy Triesscheijn</div>
+          <div class="title title-b">Tech Lead at
+            <a href='https://techlab.bol.com/en/'><img class="logo-bol" src="./splash/assets/bol.png" /></a>
+            Game Technology Enthusiast
+          </div>
+          <div class="buttons">
+            <a class="button" href="./blog/index.html">Blog</a>
+            <a class="button" href="https://github.com/roy-t" target="_blank">Github</a>
+            <a class="button" href="./files/resume.pdf" target="_blank">Resume</a>
+            <a class="button" href="https://www.linkedin.com/in/roy-triesscheijn" target="_blank">LinkedIn</a>
+            <a class="button" href="https://mastodon.social/@roytries" target="_blank">Mastodon</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="quality" id="quality">Simulation quality:</span>
+    <a class="quality" href="#" id="quality_ultra">ultra</a>,
+    <a class="quality" href="#" id="quality_high">high</a>,
+    <a class="quality" href="#" id="quality_medium">medium</a>,
+    <a class="quality" href="#" id="quality_low">low</a>
+  </div>
 
-{% if paginator.total_pages > 1 %}
-<div class="pagination">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-  {% else %}
-    <span>&laquo; Prev</span>
-  {% endif %}
-
-  {% for page in (1..paginator.total_pages) %}
-    {% if page == paginator.page %}
-      <em>{{ page }}</em>
-    {% elsif page == 1 %}
-      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-    {% else %}
-      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-    {% endif %}
-  {% endfor %}
-
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
-  {% else %}
-    <span>Next &raquo;</span>
-  {% endif %}
-  <p>
-  	({{ paginator.total_posts }} total posts) 
-  </p>
-</div>
-{% endif %}
+</html>

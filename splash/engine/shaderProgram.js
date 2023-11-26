@@ -22,7 +22,7 @@ class ShaderProgram {
     /** @type {WebGLUniformLocation} */
     getUniform(/** @type {string} */ name) {
         if (!this.uniforms.has(name)) {
-            alert(`Unknow uniform ${name}`);
+            console.warn(`Unknow uniform ${name}`);
         }
         return this.uniforms.get(name);
     }
@@ -64,6 +64,10 @@ class ShaderProgram {
         /** @type {string[]?} */
         includePaths) {
         const program = await ShaderProgram.createShaderProgramFromFiles(gl, vertexShaderPath, fragmentShaderPath, includePaths);
+        if (program === null) {
+            return null;
+        }
+
         const attributes = new Map();
         for (const attribute of vertexAttributes) {
             const index = gl.getAttribLocation(program, attribute);
@@ -98,6 +102,10 @@ class ShaderProgram {
         const vs = ShaderProgram.createShader(gl, gl.VERTEX_SHADER, vertexShaderPath, vsExtendedSource);
         const fs = ShaderProgram.createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderPath, fsExtendedSource);
 
+        if (vs === null || fs === null) {
+            return null;
+        }
+
         return ShaderProgram.createShaderProgram(gl, vs, fs, [vertexShaderPath, fragmentShaderPath]);
     }
 
@@ -112,7 +120,8 @@ class ShaderProgram {
         gl.linkProgram(program);
 
         if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-            alert(`Failed to link shader program ${names}: ${gl.getProgramInfoLog(program)}`);
+            console.error(`Failed to link shader program ${names}: ${gl.getProgramInfoLog(program)}`);
+            return null;
         }
 
         return program;
@@ -128,7 +137,8 @@ class ShaderProgram {
         gl.compileShader(shader);
 
         if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-            alert(`Failed to compile shader ${name}: ${gl.getShaderInfoLog(shader)}`)
+            console.error(`Failed to compile shader ${name}: ${gl.getShaderInfoLog(shader)}`)
+            return null;
         }
 
         return shader;
