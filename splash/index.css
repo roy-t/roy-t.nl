@@ -69,7 +69,7 @@ html, body {
     margin: 10vmin auto;
     width: 30vmin;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .button {
