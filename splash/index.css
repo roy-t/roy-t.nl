@@ -58,11 +58,11 @@ html, body {
     font-size: 3.0vmin;
 }
 
-.logo-bol {
-    height: 2.5vmin;
+.logo {
+    height: 2.6vmin;
     display: inline-block;
-    margin-right: 1vmin;
-    margin-bottom: -0.2vmin;
+    margin-right: 0.3vmin;
+    margin-bottom: -0.1vmin;
 }
 
 .buttons {
