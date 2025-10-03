@@ -18,7 +18,7 @@ title: Roy Triesscheijn's Blog
 email: roy-t@hotmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Tech Lead at bol.com - Game Technology Enthusiast
-baseurl: "/blog" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://roy-t.nl"
 github_username:  roy-t
 
