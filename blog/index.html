@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 layout: default
 pagination:
@@ -47,4 +48,45 @@ pagination:
   	({{ paginator.total_posts }} total posts) 
   </p>
 </div>
+=======
+---
+layout: default
+pagination:
+  enabled: true
+  sort_reverse: true
+---
+
+<div class="home">
+  <ul class="post-list">
+    {% for post in paginator.posts %}
+      <li>        
+        <h2>          
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
+        </h2>
+        
+      </li>
+    {% endfor %}
+  </ul>  
+
+</div>
+
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+  {% else %}
+    <span>&laquo; Prev</span>
+  {% endif %}
+
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+  {% else %}
+    <span>Next &raquo;</span>
+  {% endif %}
+  <p>
+  	({{ paginator.total_posts }} total posts) 
+  </p>
+</div>
+>>>>>>> b71d248be502780b526762d3bbd298b367d618b8
 {% endif %}

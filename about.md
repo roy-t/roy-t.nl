@@ -21,9 +21,11 @@ In 2014 I received my master's degree when I graduated Cum Laude from Utrecht Un
 
 From 2015 to 2018 I worked at <a href="http://silverfit.nl">SilverFit</a>. At SilverFit I worked with a diverse set of sensors (such as the Kinect 2 camera by Microsoft) for measuring movement, breathing, and even swallowing. This information is used in applied games in the field of geriatrics.
 
-In the beginning of 2018 I made the switch to <a href="https://bol.com">bol.com</a>. Where I'm currently fulfilling the role of Tech Lead within the infrastructure department.
+In the beginning of 2018 I made the switch to <a href="https://bol.com">bol.com</a>. Where I grew to the role Tech Lead within the infrastructure department. I was responsible for Engineering Productivity product and focussed on DevEx, DevOps and platform engineering.
 
-You can always contact me via <a href="mailto:roy-t@hotmail.com">e-mail</a>, <a href="https://mastodon.social/@roytries">Mastodon</a>, <a href="http://www.linkedin.com/pub/roy-triesscheijn/32/38a/387">LinkedIn</a>, <a href="http://www.youtube.com/user/roytri">Youtube</a> or <a href="https://twitter.com/roytries">Twitter</a>.
+In 2025 I started working at <a href="https://www.gartner.com/en/chief-information-officer/products/gartner-for-technical-professionals">Gartner</a> as Director Analyst. I advice clients on DevEx, DevOps, platform engineering, microservice architecture, and cloud migrations.
+
+You can always contact me via <a href="mailto:roy-t@hotmail.com">e-mail</a>, <a href="https://mastodon.social/@roytries">Mastodon</a>, <a href="http://www.linkedin.com/pub/roy-triesscheijn/32/38a/387">LinkedIn</a> or even <a href="http://www.youtube.com/user/roytri">Youtube</a>.
 
 <a href="http://stackexchange.com/users/199657"><img class="alignright" title="profile for Roy T. on Stack Exchange, a network of free, community-driven Q&amp;A sites" alt="profile for Roy T. on Stack Exchange, a network of free, community-driven Q&amp;A sites" src="http://stackexchange.com/users/flair/199657.png" width="208" height="58" />
 </a>
