@@ -23,7 +23,9 @@ From 2015 to 2018 I worked at <a href="http://silverfit.nl">SilverFit</a>. At Si
 
 In the beginning of 2018 I made the switch to <a href="https://bol.com">bol.com</a>. Where I grew to the role Tech Lead within the infrastructure department. I was responsible for Engineering Productivity product and focussed on DevEx, DevOps and platform engineering.
 
-In 2025 I started working at <a href="https://www.gartner.com/en/chief-information-officer/products/gartner-for-technical-professionals">Gartner</a> as Director Analyst. I advice clients on DevEx, DevOps, platform engineering, microservice architecture, and cloud migrations.
+In 2025 I started working at <a href="https://www.gartner.com/en/chief-information-officer/products/gartner-for-technical-professionals">Gartner</a> as Director Analyst. I advice clients on DevEx, DevOps, platform engineering, microservice architecture, and cloud migrations. Inadvertently I also started covering AI and how AI changes DevEx and DevOps and general software engineering.
+
+Two years later, in 2027 I moved on to <a href="https://www.rabobank.com">Rabobank</a> to work as a Solution Architect.
 
 You can always contact me via <a href="mailto:roy-t@hotmail.com">e-mail</a>, <a href="https://mastodon.social/@roytries">Mastodon</a>, <a href="http://www.linkedin.com/pub/roy-triesscheijn/32/38a/387">LinkedIn</a> or even <a href="http://www.youtube.com/user/roytri">Youtube</a>.
 
