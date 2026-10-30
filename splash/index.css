@@ -66,7 +66,7 @@ html, body {
 }
 
 .buttons {
-    margin: 10vmin auto;
+    margin: 10vmin auto 1vmin auto;
     width: 30vmin;
     display: flex;
     justify-content: center;
@@ -81,4 +81,16 @@ html, body {
     margin: 1.9vmin;
     font-family: "Stellar";
     font-size: 3vmin;
+}
+
+.former {
+    color: white;
+    font-family: "Stellar";
+    font-size: 2.4vmin;
+}
+
+.former .logo {
+    height: 0.75em;
+    margin: 0 0.2em;
+    vertical-align: baseline;
 }
