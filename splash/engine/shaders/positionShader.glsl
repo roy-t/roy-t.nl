@@ -13,6 +13,7 @@ void main(void) {
     vec4 position = texture(uPositionSampler, uv);
     vec4 velocity = texture(uVelocitySampler, uv);
 
+    bool spawned = false;
     if(position.a <= 0.0 || position.x <= 0.0) {
         // Reset old and out-of-bound particles.
         // Make sure that we do not release all particles at the same time when the simulation starts
@@ -24,13 +25,17 @@ void main(void) {
             position.y = r0 * 0.75 + 0.125;
             position.z = r0 * 0.8 + r1 * 0.2;
             position.a = 1.0;
+            spawned = true;
         }
     }
 
     position.a = position.a - (uDelta / MAX_LIFETIME_SECONDS);
 
     if(velocity.z == 0.0) {
-        position.xy += velocity.xy * uDelta;
+        // The velocity was computed for the particle's previous position, so skip it for freshly spawned particles
+        if(!spawned) {
+            position.xy += velocity.xy * uDelta;
+        }
     } else {
         position.z = 1.0;
     }

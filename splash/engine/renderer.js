@@ -31,8 +31,8 @@ function render(
     // Update velocity simulation
     simulate(gl, velocityBuffer, velocityProgram, velocityBuffer.readTarget.tex, positionBuffer.readTarget.tex,
         buffers, delta, accumulator);
-    // Update position simulation
-    simulate(gl, positionBuffer, positionProgram, velocityBuffer.readTarget.tex, positionBuffer.readTarget.tex,
+    // Update position simulation, using the velocities that were just computed from the current positions
+    simulate(gl, positionBuffer, positionProgram, velocityBuffer.writeTarget.tex, positionBuffer.readTarget.tex,
         buffers, delta, accumulator);
 
     // Render points to canvas
