@@ -11,7 +11,7 @@ const float MAX_LIFETIME_SECONDS = 5.5;
 void main(void) {
     vec2 uv = screenToTexture(vPosition);
     vec4 position = texture(uPositionSampler, uv);
-    vec4 velocity = texture(uVelocitySampler, uv);
+    vec2 velocity = texture(uVelocitySampler, uv).xy;
 
     bool spawned = false;
     if(position.a <= 0.0 || position.x <= 0.0) {
@@ -31,13 +31,9 @@ void main(void) {
 
     position.a = position.a - (uDelta / MAX_LIFETIME_SECONDS);
 
-    if(velocity.z == 0.0) {
-        // The velocity was computed for the particle's previous position, so skip it for freshly spawned particles
-        if(!spawned) {
-            position.xy += velocity.xy * uDelta;
-        }
-    } else {
-        position.z = 1.0;
+    // The velocity was computed for the particle's previous position, so skip it for freshly spawned particles
+    if(!spawned) {
+        position.xy += velocity * uDelta;
     }
 
     fragColor = position;

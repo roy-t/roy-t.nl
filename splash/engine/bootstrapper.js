@@ -69,8 +69,8 @@ async function main() {
     const renderProgram = await ShaderProgram.create(gl,
         'splash/engine/shaders/pointVertexShader.glsl',
         'splash/engine/shaders/pointFragmentShader.glsl',
-        [],
-        ["uVertrexStride", "uFragmentStride", "uVertexPositionSampler", "uFragmentPositionSampler", "uPointSize"],
+        ["vVertexId"],
+        ["uVertexStride", "uVertexPositionSampler", "uPointSize"],
         ["splash/engine/shaders/common.glsl"]);
 
 
@@ -94,7 +94,8 @@ async function main() {
     let currentQuality = quality;
     function frame(/** @type {DOMHighResTimeStamp} */ now) {
         if (document.visibilityState === "visible") {
-            const deltaSeconds = Math.min((now - then) * 0.001, 1.0 / 30.0);
+            // The first frame has no previous frame to measure the elapsed time against
+            const deltaSeconds = then === 0.0 ? 0.0 : Math.min((now - then) * 0.001, 1.0 / 30.0);
             if (currentQuality != quality) {
                 [positionBuffer, velocityBuffer] = createBuffers(gl, quality);
                 currentQuality = quality;
@@ -119,18 +120,19 @@ function createBuffers(
     /** @type {WebGL2RenderingContext} */gl,
     /** @type {number} */ quality) {
 
-    const div = Math.pow(2, quality);
-
-    const width = Math.floor(1024.0 / div);
-    const height = Math.floor(1024.0 / div);
+    // One texel per particle, 2^(21 - quality) particles in total:
+    // 1024x1024, 1024x512, 512x512, 512x256
+    const exponent = 21 - quality;
+    const width = Math.pow(2, Math.ceil(exponent / 2));
+    const height = Math.pow(2, Math.floor(exponent / 2));
 
     const positionBuffer = new DoubleBufferedFrameBuffer(
         FrameBuffer.createRGBA32F(gl, width, height),
         FrameBuffer.createRGBA32F(gl, width, height)
     );
     const velocityBuffer = new DoubleBufferedFrameBuffer(
-        FrameBuffer.createRGBA32F(gl, width, height),
-        FrameBuffer.createRGBA32F(gl, width, height)
+        FrameBuffer.createRG32F(gl, width, height),
+        FrameBuffer.createRG32F(gl, width, height)
     );
 
     return [positionBuffer, velocityBuffer];

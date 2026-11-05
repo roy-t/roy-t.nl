@@ -45,23 +45,16 @@ function render(
     gl.activeTexture(gl.TEXTURE0);
     gl.bindTexture(gl.TEXTURE_2D, positionBuffer.readTarget.tex);
     gl.uniform1i(renderProgram.getUniform("uVertexPositionSampler"), 0);
-    gl.uniform1i(renderProgram.getUniform("uFragmentPositionSampler"), 0);
-
-    gl.uniform1f(renderProgram.getUniform("uVertrexStride"), positionBuffer.readTarget.width);
-    gl.uniform1f(renderProgram.getUniform("uFragmentStride"), positionBuffer.readTarget.width);
-
-    // Total coverage always stays 4M pixels, but with a lot less work!
+    gl.uniform1f(renderProgram.getUniform("uVertexStride"), positionBuffer.readTarget.width);
 
     // 2x2, 4x4, 8x8, ...
     const mul = Math.ceil(width / 1440.0);
     const div = Math.floor(Math.pow(2, quality));
     let pointSize = mul * div;
 
+    // One point per particle
+    let pointCount = positionBuffer.readTarget.width * positionBuffer.readTarget.height;
 
-    // 1024*1024, 512*512, 256*256, ...
-    let pointCount = Math.floor((buffers.pointCount * 2)  / div);
-
-    
     gl.uniform1f(renderProgram.getUniform("uPointSize"), pointSize);
 
     drawPoints(gl, renderProgram, buffers, pointCount);
@@ -134,7 +127,7 @@ function drawPoints(
     pointCount
     ) {
 
-    program.setVertexAttribute(gl, buffers.points, "Id", 1, gl.FLOAT);
+    program.setVertexAttribute(gl, buffers.points, "vVertexId", 1, gl.FLOAT);
 
     {
         gl.drawArrays(gl.POINTS, 0, Math.min(buffers.pointCount, pointCount));

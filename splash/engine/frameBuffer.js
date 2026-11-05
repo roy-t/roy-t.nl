@@ -64,14 +64,36 @@ class FrameBuffer {
         width,
         /** @type {number} */
         height) {
+        return FrameBuffer.#create(gl, width, height, gl.RGBA32F, gl.RGBA);
+    }
+
+    static createRG32F(
+        /** @type {WebGL2RenderingContext} */
+        gl,
+        /** @type {number} */
+        width,
+        /** @type {number} */
+        height) {
+        return FrameBuffer.#create(gl, width, height, gl.RG32F, gl.RG);
+    }
+
+    static #create(
+        /** @type {WebGL2RenderingContext} */
+        gl,
+        /** @type {number} */
+        width,
+        /** @type {number} */
+        height,
+        /** @type {number} */
+        internalFormat,
+        /** @type {number} */
+        srcFormat) {
 
         const texture = gl.createTexture();
         const level = 0;
         gl.bindTexture(gl.TEXTURE_2D, texture);
         {
-            const internalFormat = gl.RGBA32F;
             const border = 0;
-            const srcFormat = gl.RGBA;
             const srcType = gl.FLOAT;
             const data = null;
 

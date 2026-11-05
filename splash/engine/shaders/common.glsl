@@ -8,13 +8,8 @@ precision mediump int;
 precision highp sampler2D;
 
 // Maps an index to the correct texel in a texture with the given stride (width)
-vec2 indexToTextureCoordinate(float i, float stride) {
-    float ix = mod(i, stride);
-    float iy = i / stride;
-    float u = ix / stride;
-    float v = iy / stride;
-
-    return vec2(u, v);
+ivec2 indexToTexel(float i, float stride) {
+    return ivec2(mod(i, stride), floor(i / stride));
 }
 
 vec2 screenToTexture(vec2 tex) {
